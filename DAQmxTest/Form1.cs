@@ -33,7 +33,7 @@ namespace DAQmxTest
                 IAsyncResult async = reader.BeginReadWaveform(-1, null, null);
                 AnalogWaveform<double> waveform = reader.EndReadWaveform(async);
                 waveform.Timing = WaveformTiming.CreateWithRegularInterval(TimeSpan.FromSeconds(3), DateTime.Now);
-                xAxis1.MajorDivisions.LabelFormat = new FormatString(FormatStringMode.DateTime, "G");
+                xAxis1.MajorDivisions.LabelFormat = new FormatString(FormatStringMode.DateTime, "h:mm:ss tt");
                 waveformGraphTemp.PlotWaveform(waveform, 
                     new AnalogWaveformPlotOptions(AnalogWaveformPlotDisplayMode.Time, 
                     AnalogWaveformPlotScaleMode.Raw));
